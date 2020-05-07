@@ -111,6 +111,7 @@ const IndexPage = () => (
     {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
     {/*  <Image />*/}
     {/*</div>*/}
+    {/*rommer chu*/}
   </Layout>
 )
 
