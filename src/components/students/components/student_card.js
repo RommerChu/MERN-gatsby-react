@@ -15,7 +15,7 @@ const StudentCard = props =>{
 
   return (
     <div className="row">
-      {props.students.map( book =>{
+      {props.students.map( student =>{
         return (
           <div className="col-lg-3" key={student.id}>
             <div className="card">

@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from "gatsby";
 
 import Layout from "../components/layout"
-import Image from "../components/images"
-import Slide1 from "../components/image"
-import Slide2 from "../components/image"
-import Slide3 from "../components/image"
+
+
+import Image from '../components/image'
+// import Slide1 from "../components/image"
+// import Slide2 from "../components/image"
+// import Slide3 from "../components/image"
+
+
 import SEO from "../components/seo"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
-import {Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import TeacherList from '../components/teacher/pages/list'
 import TeacherShow from '../components/teacher/pages/show'
@@ -23,48 +27,12 @@ import StudentUpdate from '../components/students/pages/update'
 
 
 
-const IndexPage = () => (
-  <Layout>
-    <Carousel>
-      <Carousel.Item>
-        {/*<img*/}
-        {/*  className="d-block w-100"*/}
-        {/*  src="../images/slide1.jpg"*/}
-        {/*  alt="First slide"*/}
-        {/*/>*/}
-        <Slide1 />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/*<img*/}
-        {/*  className="d-block w-100"*/}
-        {/*  src="../images/slide2.jpg"*/}
-        {/*  alt="Third slide"*/}
-        {/*/>*/}
-          <Slide2 />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/*<img*/}
-        {/*  className="d-block w-100"*/}
-        {/*  src="../images/slide3.jpg"*/}
-        {/*  alt="Third slide"*/}
-        {/*/>*/}
-          <Slide3 />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+const IndexPage = () => {
 
-    <div className="row">
+  return( <Layout>
+
+
+      <div className="row">
         <div className="col-md-8">
           LEFT COLUMN
           <SEO title="Home" />
@@ -73,12 +41,14 @@ const IndexPage = () => (
         </div>
 
         <div className="col-md-4">
-          <Image />
+          <h1>Image should be here</h1>
           RIGHT COLUMN
+
+          <Router>
           <Switch>
 
             <Route link="/" exact >
-              <Home/>
+              {/*<Home/>*/}
             </Route>
 
             <Route path="/students/" exact>
@@ -103,16 +73,23 @@ const IndexPage = () => (
             <Route path="/teacher/update/:id" component={TeacherUpdate} exact/>
 
           </Switch>
+          </Router>
         </div>
-    </div>
-    {/*<SEO title="Home" />*/}
-    {/*<h1>Welcome to ABC Academy</h1>*/}
-    {/*<p>Nurishing your kids for a bright future.</p>*/}
-    {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
-    {/*  <Image />*/}
-    {/*</div>*/}
-    {/*rommer chu*/}
-  </Layout>
-)
+      </div>
+      {/*<SEO title="Home" />*/}
+      {/*<h1>Welcome to ABC Academy</h1>*/}
+      {/*<p>Nurishing your kids for a bright future.</p>*/}
+      {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
+        {/*<Image />*/}
+      {/*</div>*/}
+      {/*rommer chu*/}
+    </Layout>
+  )
+
+}
+
+
+
+
 
 export default IndexPage;

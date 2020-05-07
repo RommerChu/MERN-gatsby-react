@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const TeacherCard = props =>{
 
@@ -34,7 +34,7 @@ const TeacherCard = props =>{
               <p>{teacher.phone}</p>
               <p>
 
-                <Link to={`/author/${author._id}/show`}>
+                <Link to={`/teacher/${teacher._id}/show`}>
                   <button>Profile</button>
                 </Link>
 
@@ -53,4 +53,4 @@ const TeacherCard = props =>{
   )
 }
 
-export default AuthorCard
+export default TeacherCard
