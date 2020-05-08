@@ -104,26 +104,26 @@ const Create = () => {
                 {errors.age && <p className="error"><strong>Please address information</strong></p>}
                 <label>Address</label>
                 < input type="text" name="street" className="form-control" placeholder="Enter no. and street" ref={register({required:true})} />
-                {errors.address.street && <p className="error"><strong>Please address information</strong></p>}
+                {errors.street && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="city" className="form-control" placeholder="Enter city" ref={register({required:true})} />
-                {errors.address.city && <p className="error"><strong>Please address information</strong></p>}
+                {errors.city && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="province" className="form-control" placeholder="Enter province" ref={register({required:true})} />
-                {errors.address.province && <p className="error"><strong>Please address information</strong></p>}
+                {errors.province && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="postalCode" className="form-control" placeholder="Enter postal code" ref={register({required:true})} />
-                {errors.address.postalCode && <p className="error"><strong>Please address information</strong></p>}
+                {errors.postalCode && <p className="error"><strong>Please address information</strong></p>}
                 <label>Parents:</label>
                 < input type="text" name="father" className="form-control" placeholder="Enter father name" ref={register({required:true})} />
-                {errors.parents.father && <p className="error"><strong>Please address information</strong></p>}
+                {errors.father && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="contact1" className="form-control" placeholder="Enter contact number" ref={register({required:true})} />
-                {errors.parents.contact1 && <p className="error"><strong>Please address information</strong></p>}
+                {errors.contact1 && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="email1" className="form-control" placeholder="Enter father's email" ref={register({required:true})} />
-                {errors.parents.email1 && <p className="error"><strong>Please address information</strong></p>}
+                {errors.email1 && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="mother" className="form-control" placeholder="Enter mother's name" ref={register({required:true})} />
-                {errors.parents.mother && <p className="error"><strong>Please address information</strong></p>}
+                {errors.mother && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="contact2" className="form-control" placeholder="Enter contact number" ref={register({required:true})} />
-                {errors.parents.contact2 && <p className="error"><strong>Please address information</strong></p>}
+                {errors.contact2 && <p className="error"><strong>Please address information</strong></p>}
                 < input type="text" name="email2" className="form-control" placeholder="Enter mother's email" ref={register({required:true})} />
-                {errors.parents.email2 && <p className="error"><strong>Please address information</strong></p>}
+                {errors.email2 && <p className="error"><strong>Please address information</strong></p>}
                 <label>Level:</label>
                 < input type="text" name="level" className="form-control" placeholder="Enter level eg. kinder, jk, sk" ref={register({required:true})} />
                 {errors.level && <p className="error"><strong>Please address information</strong></p>}

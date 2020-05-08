@@ -4,10 +4,17 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import CreateStudent from '../components/students/pages/create'
+
 
 const AddStudentPage = () => (
   <Layout>
     <SEO title="Add a student" />
+
+
+    <CreateStudent/>
+
+
     <h1>Please add a student</h1>
     <form method="post" action="#">
       <label>
