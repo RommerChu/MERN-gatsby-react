@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
 
@@ -40,7 +40,7 @@ const Update=(props)=>{
               <ShowErrorMessage/>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
-                  <label >Name:</label>
+                  <label>Name:</label>
                   <input  type="text" name="firstName" className="form-control" placeholder="Enter name" ref={register({required:true, minLength:5})} />
                   {errors.firstName && <p className="error"><strong>Please enter first name</strong></p>}
                 </div>

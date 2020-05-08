@@ -3,16 +3,8 @@ import { Link } from "gatsby";
 
 import Layout from "../components/layout"
 
-
-import Image from '../components/image'
-// import Slide1 from "../components/image"
-// import Slide2 from "../components/image"
-// import Slide3 from "../components/image"
-
-
 import SEO from "../components/seo"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carousel from 'react-bootstrap/Carousel'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import TeacherList from '../components/teacher/pages/list'
@@ -33,24 +25,30 @@ const IndexPage = () => {
 
 
       <div className="row">
+
+        {/*LEFT PANEL*/}
         <div className="col-md-8">
-          LEFT COLUMN
           <SEO title="Home" />
           <h1>Welcome to ABC Academy</h1>
-          <p>Nourishing your kids for a bright future.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin luctus varius. Aliquam consequat leo fringilla eros imperdiet venenatis. Phasellus sed lectus sed enim consectetur ultricies sit amet quis eros. Morbi venenatis feugiat urna. In malesuada quis ligula non rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur egestas porta elit, sed aliquam arcu consequat quis.</p>
+          <button className="btn btn-primary">Learn more</button>
         </div>
 
+        {/*RIGHT PANEL*/}
         <div className="col-md-4">
-          <h1>Image should be here</h1>
-          RIGHT COLUMN
+          <h5>Quick links</h5>
+          <Link to="/page-2/">Go to page 2</Link><br/><br/>
+          <Link to="/students">Students list</Link><br/>
+          <Link to="/addStudents">ADD: Student</Link><br/><br/>
+          <Link to="/teachers">Teachers list</Link><br/>
+
+
 
           <Router>
           <Switch>
-
             <Route link="/" exact >
               {/*<Home/>*/}
             </Route>
-
             <Route path="/students/" exact>
               <StudentList/>
             </Route>

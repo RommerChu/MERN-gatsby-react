@@ -1,5 +1,3 @@
-//THIS IS THE ORIGINAL HEADER JS
-import { Link } from "gatsby";
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -17,9 +15,9 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <div>
+      <div className="header_white">
         <h2>ABC Academy</h2>
-        <p>Nurishing your kids to a brighter future</p>
+        <p><i>Nourishing your kids to a brighter future</i></p>
       </div>
       {/*<h1 style={{ margin: 0 }}>*/}
       {/*  <Link*/}

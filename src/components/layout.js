@@ -11,10 +11,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import {Link} from "gatsby"
 
 
+import BackgroundSlider from 'gatsby-image-background-slider'
 import Header from "./header"
 import "./layout.css"
 import Footer from "./footer"
-
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <Link to="/page-2/">Go to page 2</Link>
+
       </div>
       <Footer siteFooter={data.site.siteMetadata.title}/>
     </>

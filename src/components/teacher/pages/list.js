@@ -3,8 +3,6 @@ import axios from 'axios'
 
 import TeacherCard from '../../teacher/components/teacher_card'
 
-
-
 const List=()=>{
 
   const [teachersList, editTeachers] = useState([])
