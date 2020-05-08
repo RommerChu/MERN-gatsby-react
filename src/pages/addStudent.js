@@ -3,17 +3,32 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import StudentCreate from "../components/students/pages/create"
-import { Route } from "react-router-dom"
 
 
 const AddStudentPage = () => (
   <Layout>
     <SEO title="Add a student" />
     <h1>Please add a student</h1>
-    <Route path="/students/create" exact>
-      <StudentCreate/>
-    </Route>
+    <form method="post" action="#">
+      <label>
+        Name
+        <input type="text" name="name" id="name" />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" id="email" />
+      </label>
+      <label>
+        Subject
+        <input type="text" name="subject" id="subject" />
+      </label>
+      <label>
+        Message
+        <textarea name="message" id="message" rows="5" />
+      </label>
+      <button type="submit">Send</button>
+      <input type="reset" value="Clear" />
+    </form>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
