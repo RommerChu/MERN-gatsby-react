@@ -1,6 +1,6 @@
 import React from 'react'
-
 import StudentCard from "../components/student_card"
+import { Row } from "react-bootstrap"
 
 const  List = ()=>{
   const STUDENTS = [
@@ -81,14 +81,14 @@ const  List = ()=>{
   ]
 
   return (
-    <div className="row">
+    <Row>
       <div className="col-lg-12 text-center">
         <h1>This page will list all the students</h1>
         <br/>
         <br/>
         <StudentCard students={STUDENTS}/>
       </div>
-    </div>
+    </Row>
   )
 }
 

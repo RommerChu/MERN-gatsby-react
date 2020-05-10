@@ -3,19 +3,20 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import StudentList from "../components/students/pages/list"
-
+import StudentCard from "../components/students/components/student_card"
 
 const StudentPage = () => (
   <Layout>
     <SEO title="Students list" />
-    <h1>Here you will see the students list</h1>
+    <h2>Here you will see the students list</h2>
     {/*<StudentList/>*/}
     <Link to="/">Go back to the homepage</Link>
     <br/>
     <br/>
-    <Link to="" className="btn btn-success">Add Student</Link>&nbsp;&nbsp;
-    <Link to="" className="btn btn-warning">Edit Student</Link>
+    <StudentCard/>
+    <Link to="/add-students" className="btn btn-success px-sm-5 mr-2">Add Student</Link>
+    <Link to="/update-students" className="btn btn-primary px-sm-5 mr-2">Update Student</Link>
+    <Link to="" className="btn btn-warning px-sm-5 mr-2">Edit Student</Link>
   </Layout>
 )
 

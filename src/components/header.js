@@ -1,36 +1,49 @@
 import PropTypes from "prop-types"
 import React from "react"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Navbar, NavDropdown, Nav } from "react-bootstrap"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `3.0rem`,
+      background: `dark`,
+      marginBottom: `8.0rem`,
     }}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <div className="header_white">
-        <h2>ABC Academy</h2>
-        <p><i>Nourishing your kids to a brighter future</i></p>
-      </div>
-      {/*<h1 style={{ margin: 0 }}>*/}
-      {/*  <Link*/}
-      {/*    to="/"*/}
-      {/*    style={{*/}
-      {/*      color: `white`,*/}
-      {/*      textDecoration: `none`,*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    {siteTitle}*/}
-      {/*  </Link>*/}
-      {/*</h1>*/}
-    </div>
+    {/*REACT BOOTSTRAP NAVIGATION*/}
+
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <div className="container">
+          <Navbar.Brand href="/">ABC Academy<p className="brand-tag">Nourishing your kids to a brighter future</p></Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#features">About</Nav.Link>
+
+              <NavDropdown title="Teacher" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/teachers">List</NavDropdown.Item>
+                <NavDropdown.Item href="/add-teachers">Add new Teacher</NavDropdown.Item>
+                <NavDropdown.Item href="/update-teachers">Update Teacher</NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="Students" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/students">List</NavDropdown.Item>
+                <NavDropdown.Item href="/add-students">Add new student</NavDropdown.Item>
+                <NavDropdown.Item href="/update-students">Update Student</NavDropdown.Item>
+                {/*<NavDropdown.Divider />*/}
+                {/*<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>*/}
+              </NavDropdown>
+            </Nav>
+            <Nav>
+              <Nav.Link href="http://rommer.ca/" target={"_blank"}><i>by</i>&nbsp;&nbsp;Rommer Chu</Nav.Link>
+              <Nav.Link eventKey={2} href="https://github.com/RommerChu" target={"_blank"}>
+                Github
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+
+      </Navbar>
+
   </header>
 )
 
@@ -43,7 +56,6 @@ Header.defaultProps = {
 }
 
 export default Header
-
 
 
 // import React, { useState, useEffect } from 'react';

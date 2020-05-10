@@ -4,15 +4,15 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import CreateStudent from '../components/students/pages/create'
+import UpdateStudent from '../components/students/pages/update'
 
 
-const AddStudentPage = () => (
+const UpdateStudents = () => (
   <Layout>
-    <SEO title="Add a student" />
-    <CreateStudent/>
+    <SEO title="UPDATE A STUDENT" />
+    <UpdateStudent/>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
 
-export default AddStudentPage
+export default UpdateStudents

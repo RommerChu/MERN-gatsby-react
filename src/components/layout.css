@@ -7,7 +7,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: inherit;/*-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "Roboto Thin", Arial !important;/*-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;*/
 }
 article,
@@ -619,43 +619,6 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-
-/*FOOTER*/
-footer{
-  width: 100%;
-  height: 100px;
-  background: rebeccapurple;
-  position: absolute;
-  bottom: 0px;
-  padding: 20px 0px 20px 0px;
-  color: white;
-  text-align: center;
-}
-.footer_top{
-  background: white;
-  marginTop: 1.0rem;
-  max-width:960px;
-  padding-top:10px;
-  padding-bottom:10px;
-}
-.footer_base{
-  background-color: #9288BA;
-  height: 40px;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.student-img, teacher-img{
-  height: 120px;
-}
-
-.header_white {
-  color: #ffffff;
-}
-
-
-
 
 @media only screen and (max-width: 480px) {
   html {

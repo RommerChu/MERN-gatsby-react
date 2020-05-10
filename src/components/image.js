@@ -13,22 +13,22 @@
 //  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
 //  */
 //
-// const Image = () => {
-//   const data = useStaticQuery(graphql`
-//     query {
-//       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-//         childImageSharp {
-//           fluid(maxWidth: 300) {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
-//   `)
-//
-//   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-// }
-//
+const Image = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "abc.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 30) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+}
+
 // const Slide1 = () => {
 //   const data = useStaticQuery(graphql`
 //     query {
@@ -78,7 +78,7 @@
 // }
 //
 //
-// export default Image
+export default Image
 // // export default Slide1
 // // export default Slide2
 // // export default Slide3

@@ -14,7 +14,6 @@ import {Link} from "gatsby"
 import BackgroundSlider from 'gatsby-image-background-slider'
 import Header from "./header"
 import "./layout.css"
-import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -33,14 +32,16 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: 1100,
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
         <main>{children}</main>
 
+
       </div>
-      <Footer siteFooter={data.site.siteMetadata.title}/>
+
+
     </>
   )
 }

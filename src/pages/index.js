@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from "gatsby";
 
 import Layout from "../components/layout"
+import Layout2 from "../components/layout2"
+import BackgroundImage from "gatsby-background-image"
+import {graphql} from "gatsby"
+import "../components/CSS/Background-Image.css"
 
 import SEO from "../components/seo"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,35 +20,43 @@ import StudentList from '../components/students/pages/list'
 import StudentShow from '../components/students/pages/show'
 import StudentCreate from '../components/students/pages/create'
 import StudentUpdate from '../components/students/pages/update'
+import { Container, Row } from "react-bootstrap"
+import Footer from "../components/footer"
 
 
 
-const IndexPage = () => {
+const IndexPage = (props) => {
 
-  return( <Layout>
+  return(
 
+      <BackgroundImage
+        className="mast-head"
+        fluid={props.data.indexImage.childImageSharp.fluid}
+      >
+        <Layout>
 
-      <div className="row">
-
-        {/*LEFT PANEL*/}
-        <div className="col-md-8">
-          <SEO title="Home" />
-          <h1>Welcome to ABC Academy</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin luctus varius. Aliquam consequat leo fringilla eros imperdiet venenatis. Phasellus sed lectus sed enim consectetur ultricies sit amet quis eros. Morbi venenatis feugiat urna. In malesuada quis ligula non rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur egestas porta elit, sed aliquam arcu consequat quis.</p>
-          <button className="btn btn-primary">Learn more</button>
-        </div>
-
-        {/*RIGHT PANEL*/}
-        <div className="col-md-4">
-          <h5>Quick links</h5>
-          <Link to="/page-2/">Go to page 2</Link><br/><br/>
-          <Link to="/students">Students list</Link><br/>
-          <Link to="/addStudents">ADD: Student</Link><br/><br/>
-          <Link to="/teachers">Teachers list</Link><br/>
+      <Container>
 
 
+        <SEO title="Home" />
+        <h1>Welcome to ABC Academy</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin luctus varius. Aliquam consequat leo fringilla eros imperdiet venenatis. Phasellus sed lectus sed enim consectetur ultricies sit amet quis eros. Morbi venenatis feugiat urna. In malesuada quis ligula non rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur egestas porta elit, sed aliquam arcu consequat quis.</p>
+        <button className="btn btn-primary">Learn more</button>
 
-          <Router>
+
+      </Container>
+      <br/>
+        <Row>
+          <h5>Quick links: </h5>&nbsp;&nbsp;
+          <Link to="/page-2/" className="qlink"><h5>Go to page 2</h5></Link>&nbsp;&nbsp;
+          <Link to="/students" className="qlink"><h5>Students list</h5></Link><br/>
+          <Link to="/add-students" className="qlink"><h5>ADD: Student</h5></Link><br/><br/>
+          <Link to="/update-students" className="qlink"><h5>Update: Student</h5></Link><br/><br/>
+          <Link to="/teachers" className="qlink"><h5>Teachers list</h5></Link><br/>
+        </Row>
+
+        <Row>
+        <Router>
           <Switch>
             <Route link="/" exact >
               {/*<Home/>*/}
@@ -69,21 +81,16 @@ const IndexPage = () => {
             <Route path="/teacher/:id/show" component={TeacherShow} exact/>
             <Route path="/teacher/create" component={TeacherCreate} exact/>
             <Route path="/teacher/update/:id" component={TeacherUpdate} exact/>
-
           </Switch>
-          </Router>
-        </div>
-      </div>
-      {/*<SEO title="Home" />*/}
-      {/*<h1>Welcome to ABC Academy</h1>*/}
-      {/*<p>Nurishing your kids for a bright future.</p>*/}
-      {/*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*/}
-        {/*<Image />*/}
-      {/*</div>*/}
-      {/*rommer chu*/}
-    </Layout>
-  )
+        </Router>
+      </Row>
+        testing
+        </Layout>
+        <Layout2></Layout2>
+        <Footer/>
+    </BackgroundImage>
 
+  )
 }
 
 
@@ -91,3 +98,15 @@ const IndexPage = () => {
 
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query {
+     indexImage: file(relativePath: {eq: "slide5.jpg"}) {
+        childImageSharp {
+          fluid(maxWidth: 1920, quality:100){
+            ...GatsbyImageSharpFluid 
+          }
+        }
+     }
+  }
+`;

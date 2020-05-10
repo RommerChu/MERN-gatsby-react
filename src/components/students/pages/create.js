@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 
 import TeachersList from '../../teacher/components/teachers_list'
+import { Container, Row } from "react-bootstrap"
 
 const Create = () => {
 
@@ -62,7 +63,7 @@ const Create = () => {
     if(showMessage){
       return(
         <div className="alert alert-success">
-          <strong>Student is successfuly added!</strong>
+          Student is successfully added!
         </div>
       )
     }
@@ -71,79 +72,74 @@ const Create = () => {
 
   const onSubmit=  (formData,event)=>{
 
-    console.log("Inside this function")
-    console.log(formData)
+    // console.log("Inside this function")
+    // console.log(formData)
 
     editShowMessage(true)
     event.target.reset()
   }
 
-
   //AXIOS CALL
   return (
-    <div className="row">
-      <div className="col-lg-12 text-center ">
-        <h1>Add a student to my class</h1>
-        <br/>
-        <div className="row text-left">
-          <div className="col-lg-6 mx-auto">
-            <Message/>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-group">
-                <label>First Name:</label>
-                <input type="text" name="firstName" className="form-control" placeholder="Enter first name" ref={register({required:true})} />
-                {errors.firstName && <p className="error"><strong>Please address information</strong></p>}
-                <label>Middle Name:</label>
-                <input type="text" name="middleName" className="form-control" placeholder="Enter middle name" ref={register({required:true})} />
-                {errors.middleName && <p className="error"><strong>Please address information</strong></p>}
-                <label>Last Name:</label>
-                <input type="text" name="lastName" className="form-control" placeholder="Enter last name" ref={register({required:true})} />
-                {errors.lastName && <p className="error"><strong>Please address information</strong></p>}
-                <label>Age:</label>
-                <input type="text" name="age" className="form-control" placeholder="Enter age" ref={register({required:true})} />
-                {errors.age && <p className="error"><strong>Please address information</strong></p>}
-                <label>Address</label>
-                < input type="text" name="street" className="form-control" placeholder="Enter no. and street" ref={register({required:true})} />
-                {errors.street && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="city" className="form-control" placeholder="Enter city" ref={register({required:true})} />
-                {errors.city && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="province" className="form-control" placeholder="Enter province" ref={register({required:true})} />
-                {errors.province && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="postalCode" className="form-control" placeholder="Enter postal code" ref={register({required:true})} />
-                {errors.postalCode && <p className="error"><strong>Please address information</strong></p>}
-                <label>Parents:</label>
-                < input type="text" name="father" className="form-control" placeholder="Enter father name" ref={register({required:true})} />
-                {errors.father && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="contact1" className="form-control" placeholder="Enter contact number" ref={register({required:true})} />
-                {errors.contact1 && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="email1" className="form-control" placeholder="Enter father's email" ref={register({required:true})} />
-                {errors.email1 && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="mother" className="form-control" placeholder="Enter mother's name" ref={register({required:true})} />
-                {errors.mother && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="contact2" className="form-control" placeholder="Enter contact number" ref={register({required:true})} />
-                {errors.contact2 && <p className="error"><strong>Please address information</strong></p>}
-                < input type="text" name="email2" className="form-control" placeholder="Enter mother's email" ref={register({required:true})} />
-                {errors.email2 && <p className="error"><strong>Please address information</strong></p>}
-                <label>Level:</label>
-                < input type="text" name="level" className="form-control" placeholder="Enter level eg. kinder, jk, sk" ref={register({required:true})} />
-                {errors.level && <p className="error"><strong>Please address information</strong></p>}
-                <label>Section:</label>
-                <input type="text" name="section" className="form-control" placeholder="Enter section eg. alpha, bravo, charlie" ref={register({required:true})}/>
-                {errors.section && <p className="error"><strong>Please enter a value for title</strong></p>}
-              </div>
-              ///TEACHER SECTION
-              <div className="form-group">
-                <label>Teacher:</label>
-                <select className="form-control" name="teacher">
-                  <TeachersList teachers={TEACHERS}/>
-                </select>
-              </div>
-              <button type="submit" className="btn btn-primary">Add</button>
-            </form>
-          </div>
+    <Container>
+      <form onSubmit={handleSubmit(onSubmit)} className="col-12">
+      <h2>ADD A STUDENT RECORD</h2>
+      <Message/>
+      <Row>
+        <div className="col-4 form-group">
+          <label className="label">Name</label>
+          <input type="text" name="firstName" className="form-control input input" placeholder="First Name" ref={register({required:true})} />
+          {errors.firstName && <p className="error">Please address information</p>}
+          <input type="text" name="middleName" className="form-control input" placeholder="Middle Name" ref={register({required:true})} />
+          {errors.middleName && <p className="error">Please address information</p>}
+          <input type="text" name="lastName" className="form-control input" placeholder="Last Name" ref={register({required:true})} />
+          {errors.lastName && <p className="error">Please address information</p>}
+          <input type="text" name="age" className="form-control input" placeholder="Age" ref={register({required:true})} />
+          {errors.age && <p className="error">Please address information</p>}
+          <label className="label">Address</label>
+          <input type="text" name="street" className="form-control input" placeholder="Enter no. and street" ref={register({required:true})} />
+          {errors.street && <p className="error">Please address information</p>}
+          <input type="text" name="city" className="form-control input" placeholder="City" ref={register({required:true})} />
+          {errors.city && <p className="error">Please address information</p>}
+          <input type="text" name="province" className="form-control input" placeholder="Province" ref={register({required:true})} />
+          {errors.province && <p className="error">Please address information</p>}
+          <input type="text" name="postalCode" className="form-control input" placeholder="Postal Code" ref={register({required:true})} />
+          {errors.postalCode && <p className="error">Please address information</p>}
         </div>
-      </div>
-    </div>
+        <div className="col-4 form-group">
+          <label className="label">Father</label>
+          <input type="text" name="father" className="form-control input" placeholder="Father'Name" ref={register({required:true})} />
+          {errors.father && <p className="error">Please address information</p>}
+          <input type="text" name="contact1" className="form-control input" placeholder="Contact Number" ref={register({required:true})} />
+          {errors.contact1 && <p className="error">Please address information</p>}
+          <input type="text" name="email1" className="form-control input" placeholder="Email" ref={register({required:true})} />
+          {errors.email1 && <p className="error">Please address information</p>}
+          <label className="label">Mother</label>
+          <input type="text" name="mother" className="form-control input" placeholder="Mother's Name" ref={register({required:true})} />
+          {errors.mother && <p className="error">Please address information</p>}
+          <input type="text" name="contact2" className="form-control input" placeholder="Contact Number" ref={register({required:true})} />
+          {errors.contact2 && <p className="error">Please address information</p>}
+          <input type="text" name="email2" className="form-control input" placeholder="Email" ref={register({required:true})} />
+          {errors.email2 && <p className="error">Please address information</p>}
+        </div>
+        <div className="col-4 form-group">
+          <label className="label">Level:</label>
+          <input type="text" name="level" className="form-control input" placeholder="eg. Kinder, JK, SK" ref={register({required:true})} />
+          {errors.level && <p className="error">Please address information</p>}
+          <label className="label">Section:</label>
+          <input type="text" name="section" className="form-control input" placeholder="eg. Alpha, Bravo, Charlie" ref={register({required:true})}/>
+          {errors.section && <p className="error">Please enter a value for title</p>}
+          <label className="label">Teacher:</label>
+          <select className="form-control input" name="teacher">
+            <TeachersList teachers={TEACHERS}/>
+          </select>
+        </div>
+        <col-12>
+          <button type="submit" className="btn btn-primary px-sm-5 mr-2">Add</button>
+        </col-12>
+      </Row>
+      </form>
+    </Container>
   )
 }
 
