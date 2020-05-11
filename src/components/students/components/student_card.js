@@ -1,11 +1,23 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import { Row } from "react-bootstrap"
 
-const StudentCard = (props) =>{
+const StudentCard = () =>{
 
 
-  if(props.students.length === 0){
+  const [studentsState,editStudentsState] = useState([])
+
+
+  useEffect(()=>{
+
+    //Using Axios make an api call to get all students
+
+    // Store the students in the state I created above
+
+
+  },[])
+
+  if(studentsState.length === 0){
     return (
       <Row>
         <div className="col-lg-12">
@@ -17,7 +29,7 @@ const StudentCard = (props) =>{
 
   return (
     <Row>
-      {props.students.map( student =>{
+      {studentsState.map( student =>{
         return (
           <div className="col-lg-3" key={student.id}>
             <div className="card">
