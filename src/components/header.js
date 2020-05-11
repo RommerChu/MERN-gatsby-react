@@ -23,12 +23,12 @@ const Header = ({ siteTitle }) => (
               <NavDropdown title="Teacher" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/teachers">List</NavDropdown.Item>
                 <NavDropdown.Item href="/add-teachers">Add new Teacher</NavDropdown.Item>
-                <NavDropdown.Item href="/update-teachers">Update Teacher</NavDropdown.Item>
+                {/*<NavDropdown.Item href="/update-teachers">Update Teacher</NavDropdown.Item>*/}
               </NavDropdown>
               <NavDropdown title="Students" id="collapsible-nav-dropdown">
                 <NavDropdown.Item href="/students">List</NavDropdown.Item>
                 <NavDropdown.Item href="/add-students">Add new student</NavDropdown.Item>
-                <NavDropdown.Item href="/update-students">Update Student</NavDropdown.Item>
+                {/*<NavDropdown.Item href="/update-students">Update Student</NavDropdown.Item>*/}
                 {/*<NavDropdown.Divider />*/}
                 {/*<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>*/}
               </NavDropdown>

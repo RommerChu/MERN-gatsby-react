@@ -1,18 +1,22 @@
 import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import { Row } from "react-bootstrap"
+import axios from 'axios'
 
 const StudentCard = () =>{
 
-
   const [studentsState,editStudentsState] = useState([])
-
 
   useEffect(()=>{
 
-    //Using Axios make an api call to get all students
+    async function fetchStudent(){
+      const getStudentRes = await axios.get('http://localhost:8000/api/students');  //Using Axios make an api call to get all students
+      editStudentsState(getStudentRes.data) // Store the students in the state I created above
+    }
+  fetchStudent()
 
-    // Store the students in the state I created above
+
+
 
 
   },[])
