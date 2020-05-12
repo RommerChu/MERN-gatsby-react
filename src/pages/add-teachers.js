@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import CreateTeacher from '../components/teacher/pages/create'
 
 
-const CreateTeacherRec = () => (
+const AddTeacherPage = () => (
   <Layout>
     <SEO title="Add a teacher" />
     <CreateTeacher/>
@@ -15,4 +15,4 @@ const CreateTeacherRec = () => (
   </Layout>
 )
 
-export default CreateTeacherRec
+export default AddTeacherPage

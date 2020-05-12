@@ -7,16 +7,17 @@ import TeacherCard from "../components/teacher/components/teacher_card"
 
 const TeacherPage = () => (
   <Layout>
-    <SEO title="Students list" />
-    <h2>Here you will see the students list</h2>
-    {/*<StudentList/>*/}
+    <SEO title="Teachers list" />
+    <h2>Here you will see the teachers list</h2>
     <Link to="/">Go back to the homepage</Link>
     <br/>
     <br/>
     <TeacherCard/>
-    <Link to="/add-students" className="btn btn-success px-sm-5 mr-2">Add Student</Link>
-    <Link to="/update-students" className="btn btn-primary px-sm-5 mr-2">Update Student</Link>
-    <Link to="" className="btn btn-warning px-sm-5 mr-2">Edit Student</Link>
+      <br/>
+      <br/>
+    <Link to="/add-teachers" className="btn btn-success px-sm-5 mr-2">Add a Teacher</Link>
+    {/*<Link to="/update-students" className="btn btn-primary px-sm-5 mr-2">Update Student</Link>*/}
+    {/*<Link to="" className="btn btn-warning px-sm-5 mr-2">Edit Student</Link>*/}
   </Layout>
 )
 

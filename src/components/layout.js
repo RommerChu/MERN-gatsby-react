@@ -8,10 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {Link} from "gatsby"
+// import {Link} from "gatsby"
 
 
-import BackgroundSlider from 'gatsby-image-background-slider'
+// import BackgroundSlider from 'gatsby-image-background-slider'
 import Header from "./header"
 import "./layout.css"
 

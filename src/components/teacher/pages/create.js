@@ -2,9 +2,87 @@ import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
 import { Container, Row } from "react-bootstrap"
-import TeachersList from "../components/teachers_list"
+import StudentList from '../../students/components/students_list'
 
 const Create=()=>{
+
+  const STUDENTS = [
+    {
+      id:"s1",
+      firstName:"John",
+      middleName:"Ramos",
+      lastName:"Chu",
+      age:"5",
+      address:[{
+        street:"20 Hansen Blvd",
+        city:"Orangeville",
+        province:"ON",
+        postalCode:"L6V3C5",
+      }],
+      parents:[{
+        father:"Rommer",
+        contact1:"142-156-4569",
+        email1:"rommer.chu@gmail.com",
+        mother:"Corazon",
+        contact2:"225-556-8779",
+        email2:"corazonchu@gmail.com",
+
+      }],
+      telephone:"142-156-4569",
+      level:"kinder",
+      section:"Alpha"
+    },
+    {
+      id:"s2",
+      firstName:"Peter",
+      middleName:"Ramos",
+      lastName:"Chu",
+      age:"5",
+      address:[{
+        street:"20 Center St",
+        city:"North York",
+        province:"ON",
+        postalCode:"M2J1A8",
+      }],
+      parents:[{
+        father:"Paul",
+        contact1:"555-6117-8888",
+        email1:"paul@email.com",
+        mother:"Stephanie",
+        contact2:"226-4578-1115",
+        email2:"stephanie@email.com",
+      }],
+      telephone:"226-4578-111",
+      level:"jk",
+      section:"Bravo"
+    },
+    {
+      id:"s3",
+      firstName:"Tetley",
+      middleName:"Smith",
+      lastName:"Doe",
+      age:"4",
+      address:[{
+        street:"3219 Curve road",
+        city:"Oakville",
+        province:"ON",
+        postalCode:"A1f9R5",
+        country:"Canada"
+      }],
+      parents:[{
+        father:"Steven",
+        contact1:"666-6666-6661",
+        email1:"steven@email.com",
+        mother:"Jackie",
+        contact2:"666-7777-8194",
+        email2:"jackie@email.com",
+      }],
+      telephone:"666-7777-8194",
+      level:"sk",
+      section:"Charlie"
+    },
+  ]
+
   const {register, handleSubmit, errors}  = useForm()
   const [showMessage, editShowMessage] = useState(false)
   const [errorMessage, editErrorMessage] = useState(false)
@@ -24,20 +102,25 @@ const Create=()=>{
     if(errorMessage){
       return(
         <div className="alert alert-danger">
-          <strong>Oh my!</strong>Something went wrong, Please try again later.
+          <strong>Whoops!</strong> Something went wrong, Please try again later.
         </div>
       )
     }
     return "";
   }
-  const onSubmit=  async (formData,event)=>{
+
+  const onSubmit=  (formData,event)=>{
     editShowMessage(false)
     editErrorMessage(false)
+
     try{
-      await axios.post('http://localhost:8000/api/teachers',formData)
-      editShowMessage(true)
+      axios.post('http://localhost:5000/api/teachers',formData).then((response)=>{
+        console.log(response.data)
+        editShowMessage(true)
+      })
+
     }catch (e) {
-      editErrorMessage(true)
+      editShowMessage(true)
     }
     event.target.reset()
   }
@@ -47,6 +130,7 @@ const Create=()=>{
       <form onSubmit={handleSubmit(onSubmit)} className="col-12">
         <h2>ADD A TEACHER RECORD</h2>
         <Message/>
+        <ShowErrorMessage/>
         <Row>
           <div className="col-4 form-group">
             <label className="label">Name</label>
@@ -71,11 +155,16 @@ const Create=()=>{
             {errors.postalCode && <p className="error">Please address information</p>}
           </div>
           <div className="col-4 form-group">
-            <label className="label">Contact no.</label>
-            <input type="text" name="telephone" className="form-control input" placeholder="Contact Number" ref={register({required:true})} />
+            <label className="label">Contact:</label>
+            <input type="text" name="telephone" className="form-control input" placeholder="Telephone" ref={register({required:true})} />
             {errors.telephone && <p className="error">Please address information</p>}
-            <input type="text" name="email" className="form-control input" placeholder="Email" ref={register({required:true})} />
-            {errors.email && <p className="error">Please address information</p>}
+            <label className="label">Email:</label>
+            <input type="text" name="email" className="form-control input" placeholder="Email" ref={register({required:true})}/>
+            {errors.email && <p className="error">Please enter a value for email</p>}
+            <select className="form-control input" name="student">
+              {/*<StudentsList students={STUDENTS}/>*/}
+              <StudentList students={STUDENTS}/>
+            </select>
           </div>
           <col-12>
             <button type="submit" className="btn btn-primary px-sm-5 mr-2">Add</button>

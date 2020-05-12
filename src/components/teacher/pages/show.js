@@ -12,7 +12,7 @@ const Show=(props)=>{
   useEffect(()=>{
     const fetchData=async ()=>{
       try{
-        const response = await axios.get(`http://localhost:8000/api/teachers/${id}`)
+        const response = await axios.get(`http://localhost:5000/api/teachers/${id}`)
         editTeacher(response.data)
         console.log(response.data)
         editIsFetched(true)
@@ -27,7 +27,7 @@ const Show=(props)=>{
   const deleteTeacher=async (teacher_id)=>{
 
     try{
-      const response = await axios.delete(`http://localhost:8000/api/teachers/${teacher_id}`)
+      const response = await axios.delete(`http://localhost:5000/api/teachers/${teacher_id}`)
       console.log(response.data)
       history.push("/teachers")
 

@@ -29,9 +29,12 @@ footer{
     padding-bottom: 10px;
 }
 
-.student-img, teacher-img{
-    height: 120px;
-}
+/*.student-img, teacher-img{*/
+/*    background-image: url("./src/images/gatsby-icon.png");*/
+/*    background-repeat: no-repeat;*/
+/*    height: 120px;*/
+/*    width: 120px;*/
+/*}*/
 
 .header_white {
     color: #ffffff;

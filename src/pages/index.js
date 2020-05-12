@@ -60,41 +60,24 @@ const IndexPage = (props) => {
 
         <Row>
           <Switch>
-            <Route link="/" exact >
-              {/*<Home/>*/}
-            </Route>
-            <Route path="/students/" exact>
-              <StudentList/>
-            </Route>
-
-            <Route path="/students/create" exact>
-              <StudentCreate/>
-            </Route>
-
-            <Route path="/students/:id/show" exact >
-              <StudentShow/>
-            </Route>
-
-            <Route path="/student/update/:id" exact>
-              <StudentUpdate/>
-            </Route>
-
-            <Route path="/teacher" component={TeacherList} exact/>
-            <Route path="/teacher/:id/show" component={TeacherShow} exact/>
-            <Route path="/teacher/create" component={TeacherCreate} exact/>
-            <Route path="/teacher/update/:id" component={TeacherUpdate} exact/>
+            <Route link="/" exact >{/*<Home/>*/}</Route>
+            <Route path="/students/" exact><StudentList/></Route>
+            <Route path="/students/create" exact><StudentCreate/></Route>
+            <Route path="/students/:id/show" exact ><StudentShow/></Route>
+            <Route path="/student/update/:id" exact><StudentUpdate/></Route>
+            {/*<Route path="/teacher" component={TeacherList} exact/>*/}
+            <Route path="/teachers" component={TeacherList} exact/><TeacherList/>
+            <Route path="/teachers/:id/show" component={TeacherShow} exact/>
+            <Route path="/teachers/create" component={TeacherCreate} exact/>
+            <Route path="/teachers/update/:id" component={TeacherUpdate} exact/>
           </Switch>
         </Row>
-
-
-          testing
         </Layout>
         <Layout2></Layout2>
         <Footer/>
     </BackgroundImage>
 
     </Router>
-
 
   )
 }

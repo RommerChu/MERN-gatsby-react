@@ -1,56 +1,57 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import { Row } from "react-bootstrap"
+import axios from 'axios'
 
-const TeacherCard = props =>{
 
-  console.log("I am here")
-  console.log(props.teachers)
+const TeacherCard = () =>{
 
-  if(props.teachers.length === 0){
-    return (
-      <div className="row">
-        <div className="col-lg-12">
-          <img alt="" src="./images/gatsby-icon.png" />
-        </div>
-      </div>
-    )
-  }
+    const [teachersState,editTeachersState] = useState({teachers:[]})
 
-  return (
-    <div className="row">
-      {props.teachers.map( teacher =>{
+    useEffect(()=>{
+
+        async function fetchTeacher(){
+            const getTeachersRes = await axios.get('http://localhost:5000/api/teachers');
+            editTeachersState(getTeachersRes.data)
+        }
+        fetchTeacher()
+    },[])
+
+    if(teachersState.length === 0){
         return (
-          <div className="col-lg-3" key={teacher._id}>
-            <div className="card">
-              <img className="teacher-img" alt={teacher.firstName} src="./images/gatsby-icon.png" />
-              <h3>{teacher.firstName}&nbsp;{teacher.middleName}&nbsp;{teacher.lastName}</h3>
-              <p>Age: {teacher.age}</p>
-              <p>Address: {teacher.address}</p>
-              <p>Tel: {teacher.telephone}</p>
-
-
-
-              <p className="teacher"><strong>{teacher.email}</strong></p>
-              <p>{teacher.phone}</p>
-              <p>
-
-                <Link to={`/teacher/${teacher._id}/show`}>
-                  <button>Profile</button>
-                </Link>
-
-
-              </p>
-            </div>
-          </div>
+          <Row>
+              <div className="col-lg-12">
+                  <img alt="" src=".components/images/gatsby-astronaut.png" />
+              </div>
+          </Row>
         )
-      })}
+    }
 
-
-
-
-
-    </div>
-  )
+    return (
+      <Row>
+          {teachersState.teachers.map( teacher =>{
+              return (
+                <div className="col-lg-3" key={teacher.id}>
+                    <div className="card">
+                        <img alt="" src="./image/gatsby-icon.png" width="120px" height="120px" style={{backgroundColor:`gray`}}/>
+                        <p className="ptag">Name: {teacher.firstName}</p>
+                        <p className="ptag">Middle Name: {teacher.middleName}</p>
+                        <p className="ptag">Last Name: {teacher.lastName}</p>
+                        <p className="ptag">Age: {teacher.age}</p>
+                        <p className="ptag">Address: {teacher.address.street}</p>
+                        <p className="ptag">City: {teacher.address.city}</p>
+                        <p className="ptag">Province: {teacher.address.province}</p>
+                        <p className="ptag">PostalCode: {teacher.address.postalCode}</p>
+                        <p className="ptag">Father: {teacher.telephone}</p>
+                        <p className="ptag">Tel.: {teacher.email}</p>
+                        <br/>
+                        <p><a href={`./teachers/${teacher.id}/show/`}><button className="btn btn-primary">View Teacher</button></a></p>
+                        <p><a to={`./teachers/${teacher.id}/update/`} className="btn btn-warning">Update Teacher</a></p>
+                    </div>
+                </div>
+              )
+          })}
+      </Row>
+    )
 }
 
 export default TeacherCard

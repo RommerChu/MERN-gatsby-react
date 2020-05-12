@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
-
+import axios from 'axios'
 import TeachersList from '../../teacher/components/teachers_list'
 import { Container, Row } from "react-bootstrap"
 
-import axios from 'axios'
 
-const Create = () => {
+const Create=()=>{
+
 
   const TEACHERS = [
     {
@@ -57,9 +57,8 @@ const Create = () => {
   ]
 
   const {register, handleSubmit, errors}  = useForm()
-
   const [showMessage, editShowMessage] = useState(false)
-
+  const [errorMessage, editErrorMessage] = useState(false)
 
   const Message=()=>{
     if(showMessage){
@@ -72,19 +71,30 @@ const Create = () => {
     return "";
   }
 
+  const ShowErrorMessage=()=>{
+    if(errorMessage){
+      return(
+        <div className="alert alert-danger">
+          <strong>Whoops!</strong> Something went wrong, Please try again later.
+        </div>
+      )
+    }
+    return "";
+  }
+
   const onSubmit=  (formData,event)=>{
+    editShowMessage(false)
+    editErrorMessage(false)
 
-    // console.log("Inside this function")
-    // console.log(formData)
-    axios.post('http://localhost:5000/api/students',formData).then((response)=>{
-
-      console.log(response.data)
+    try{
+      axios.post('http://localhost:5000/api/students',formData).then((response)=>{
+        console.log(response.data)
+        editShowMessage(true)
+      })
+    }catch (e) {
       editShowMessage(true)
-
-      event.target.reset()
-
-
-    })
+    }
+    event.target.reset()
   }
 
   //AXIOS CALL
@@ -93,6 +103,7 @@ const Create = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="col-12">
       <h2>ADD A STUDENT RECORD</h2>
       <Message/>
+      <ShowErrorMessage/>
       <Row>
         <div className="col-4 form-group">
           <label className="label">Name</label>

@@ -106,7 +106,7 @@ const Update=(props)=>{
     editShowMessage(false)
     editErrorMessage(false)
     try{
-      await axios.patch(`http://localhost:8000/api/teachers/${id}`,formData)
+      await axios.patch(`http://localhost:5000/api/teachers/${id}`,formData)
       editShowMessage(true)
       fetchData()
 

@@ -11,7 +11,6 @@ const Header = ({ siteTitle }) => (
     }}
   >
     {/*REACT BOOTSTRAP NAVIGATION*/}
-
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <div className="container">
           <Navbar.Brand href="/">ABC Academy<p className="brand-tag">Nourishing your kids to a brighter future</p></Navbar.Brand>
