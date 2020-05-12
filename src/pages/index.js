@@ -28,8 +28,10 @@ import Footer from "../components/footer"
 const IndexPage = (props) => {
 
   return(
+    <Router>
 
-      <BackgroundImage
+
+    <BackgroundImage
         className="mast-head"
         fluid={props.data.indexImage.childImageSharp.fluid}
       >
@@ -46,7 +48,8 @@ const IndexPage = (props) => {
 
       </Container>
       <br/>
-        <Row>
+
+          <Row>
           <h5>Quick links: </h5>&nbsp;&nbsp;
           <Link to="/page-2/" className="qlink"><h5>Go to page 2</h5></Link>&nbsp;&nbsp;
           <Link to="/students" className="qlink"><h5>Students list</h5></Link><br/>
@@ -56,7 +59,6 @@ const IndexPage = (props) => {
         </Row>
 
         <Row>
-        <Router>
           <Switch>
             <Route link="/" exact >
               {/*<Home/>*/}
@@ -82,13 +84,17 @@ const IndexPage = (props) => {
             <Route path="/teacher/create" component={TeacherCreate} exact/>
             <Route path="/teacher/update/:id" component={TeacherUpdate} exact/>
           </Switch>
-        </Router>
-      </Row>
-        testing
+        </Row>
+
+
+          testing
         </Layout>
         <Layout2></Layout2>
         <Footer/>
     </BackgroundImage>
+
+    </Router>
+
 
   )
 }

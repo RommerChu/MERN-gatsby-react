@@ -5,12 +5,12 @@ import axios from 'axios'
 
 const StudentCard = () =>{
 
-  const [studentsState,editStudentsState] = useState([])
+  const [studentsState,editStudentsState] = useState({students:[]})
 
   useEffect(()=>{
 
     async function fetchStudent(){
-      const getStudentRes = await axios.get('http://localhost:8000/api/students');  //Using Axios make an api call to get all students
+      const getStudentRes = await axios.get('http://localhost:5000/api/students');  //Using Axios make an api call to get all students
       editStudentsState(getStudentRes.data) // Store the students in the state I created above
     }
   fetchStudent()
@@ -33,7 +33,7 @@ const StudentCard = () =>{
 
   return (
     <Row>
-      {studentsState.map( student =>{
+      {studentsState.students.map( student =>{
         return (
           <div className="col-lg-3" key={student.id}>
             <div className="card">
@@ -41,9 +41,9 @@ const StudentCard = () =>{
               <h5>{student.firstName}</h5>
               <p className="teacher">-By: <strong>{student.teacher}</strong></p>
               <p>
-                <Link to={`/students/${student.id}/show`}>
+                <a href={`/students/${student.id}/show`}>
                   <button>View Student</button>
-                </Link>
+                </a>
               </p>
             </div>
           </div>

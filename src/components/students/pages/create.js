@@ -4,6 +4,8 @@ import {useForm} from 'react-hook-form'
 import TeachersList from '../../teacher/components/teachers_list'
 import { Container, Row } from "react-bootstrap"
 
+import axios from 'axios'
+
 const Create = () => {
 
   const TEACHERS = [
@@ -74,9 +76,15 @@ const Create = () => {
 
     // console.log("Inside this function")
     // console.log(formData)
+    axios.post('http://localhost:5000/api/students',formData).then((response)=>{
 
-    editShowMessage(true)
-    event.target.reset()
+      console.log(response.data)
+      editShowMessage(true)
+
+      event.target.reset()
+
+
+    })
   }
 
   //AXIOS CALL
