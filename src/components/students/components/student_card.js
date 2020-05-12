@@ -49,8 +49,8 @@ const StudentCard = () =>{
               <p className="ptag">Email: {student.parents.email2}</p>
               <br/>
               {/*<p className="ptag">-By: <strong>{student.teacher}</strong></p>*/}
-              <p><a href={`./students/${student.id}/show/`}><button className="btn btn-primary">View Student</button></a></p>
-              <p><a to={`./students/${student.id}/update/`} className="btn btn-warning">Update Student</a></p>
+              <p><a href={`./students/${student._id}/show/`}><button className="btn btn-primary">View Student</button></a></p>
+              <p><a to={`./students/${student._id}/update/`} className="btn btn-warning">Update Student</a></p>
             </div>
           </div>
         )
