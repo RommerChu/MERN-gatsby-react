@@ -40,7 +40,7 @@ const StudentCard = () =>{
     <Row>
       {studentsState.students.map( student =>{
         return (
-          <div className="col-lg-3" key={student.id}>
+          <div className="col-lg-3" key={student._id}>
             <div className="card">
               <img alt="" src="./image/gatsby-icon.png" width="120px" height="120px" style={{backgroundColor:`gray`}}/>
               <p className="ptag">Name: {student.firstName}</p>
@@ -60,7 +60,7 @@ const StudentCard = () =>{
               <br/>
               {/*<p className="ptag">-By: <strong>{student.teacher}</strong></p>*/}
               {/*<p><a href={`./students/${student._id}/show/`}><button className="btn btn-primary">View Student</button></a></p>*/}
-              <p><a href={`./students/${student._id}`} onClick={() => deleteStudent()} className="btn btn-warning">Delete Student</a></p>
+              <p><a onClick={() => deleteStudent(student._id)} className="btn btn-warning">Delete Student</a></p>
             </div>
           </div>
         )

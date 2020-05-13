@@ -15,13 +15,13 @@ import TeacherList from '../components/teacher/pages/list'
 import TeacherShow from '../components/teacher/pages/show'
 import TeacherCreate from '../components/teacher/pages/create'
 import TeacherUpdate from '../components/teacher/pages/update'
-import deleteTeacher from '../components/teacher/pages/delete'
+// import deleteTeacher from '../components/teacher/pages/delete'
 
 import StudentList from '../components/students/pages/list'
 import StudentShow from '../components/students/pages/show'
 import StudentCreate from '../components/students/pages/create'
 import StudentUpdate from '../components/students/pages/update'
-import StudentDelete from '../components/students/pages/delete'
+// import StudentDelete from '../components/students/pages/delete'
 import { Container, Row } from "react-bootstrap"
 import Footer from "../components/footer"
 
@@ -74,6 +74,7 @@ const IndexPage = (props) => {
             <Route path="/teachers/:id/show" component={TeacherShow} exact/>
             <Route path="/teachers/create" component={TeacherCreate} exact/>
             <Route path="/teachers/update/:id" component={TeacherUpdate} exact/>
+            {/*<Route path="`http://localhost:8000/api/students/${student_id}" component={deleteTeacher} exact/>*/}
           </Switch>
         </Row>
         </Layout>
