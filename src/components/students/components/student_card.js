@@ -28,7 +28,7 @@ const StudentCard = () =>{
 
   const deleteStudent=async (student_id)=>{
     try{
-      const response = await axios.delete(`http://localhost:8000/api/students/${student_id}`)
+      const response = await axios.delete(`http://localhost:5000/api/students/${student_id}`)
       console.log(response.data)
 
     }catch (e) {
