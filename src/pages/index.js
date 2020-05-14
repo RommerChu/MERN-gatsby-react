@@ -47,18 +47,17 @@ const IndexPage = (props) => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin luctus varius. Aliquam consequat leo fringilla eros imperdiet venenatis. Phasellus sed lectus sed enim consectetur ultricies sit amet quis eros. Morbi venenatis feugiat urna. In malesuada quis ligula non rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur egestas porta elit, sed aliquam arcu consequat quis.</p>
         <button className="btn btn-primary">Learn more</button>
 
-
       </Container>
-      <br/>
+      {/*<br/>*/}
 
-          <Row>
-          <h5>Quick links: </h5>&nbsp;&nbsp;
-          <Link to="/page-2/" className="qlink"><h5>Go to page 2</h5></Link>&nbsp;&nbsp;
-          <Link to="/students" className="qlink"><h5>Students list</h5></Link><br/>
-          <Link to="/add-students" className="qlink"><h5>ADD: Student</h5></Link><br/><br/>
-          <Link to="/update-students" className="qlink"><h5>Update: Student</h5></Link><br/><br/>
-          <Link to="/teachers" className="qlink"><h5>Teachers list</h5></Link><br/>
-        </Row>
+        {/*  <Row>*/}
+        {/*  <h5>Quick links: </h5>&nbsp;&nbsp;*/}
+        {/*  <Link to="/page-2/" className="qlink"><h5>Go to page 2</h5></Link>&nbsp;&nbsp;*/}
+        {/*  <Link to="/students" className="qlink"><h5>Students list</h5></Link><br/>*/}
+        {/*  <Link to="/add-students" className="qlink"><h5>ADD: Student</h5></Link><br/><br/>*/}
+        {/*  <Link to="/update-students" className="qlink"><h5>Update: Student</h5></Link><br/><br/>*/}
+        {/*  <Link to="/teachers" className="qlink"><h5>Teachers list</h5></Link><br/>*/}
+        {/*</Row>*/}
 
         <Row>
           <Switch>
@@ -74,6 +73,7 @@ const IndexPage = (props) => {
             <Route path="/teachers/:id/show" component={TeacherShow} exact/>
             <Route path="/teachers/create" component={TeacherCreate} exact/>
             <Route path="/teachers/update/:id" component={TeacherUpdate} exact/>
+            {/*<Route path="/teachers/delete/:id" component={TeacherDelete} exact></Route>*/}
             {/*<Route path="`http://localhost:8000/api/students/${student_id}" component={deleteTeacher} exact/>*/}
           </Switch>
         </Row>
@@ -86,9 +86,6 @@ const IndexPage = (props) => {
 
   )
 }
-
-
-
 
 
 export default IndexPage;

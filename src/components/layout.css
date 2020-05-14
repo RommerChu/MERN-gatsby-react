@@ -623,6 +623,8 @@ pre tt:after {
 .ptag{margin:0px 0px;}
 .card {padding: 5px 10px 5px 10px}
 
+.bg-dark {
+  background-color: #663399!important;}
 
 @media only screen and (max-width: 480px) {
   html {

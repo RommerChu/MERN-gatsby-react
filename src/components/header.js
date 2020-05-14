@@ -7,7 +7,7 @@ const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `dark`,
-      marginBottom: `8.0rem`,
+      marginBottom: `2.0rem`,
     }}
   >
     {/*REACT BOOTSTRAP NAVIGATION*/}

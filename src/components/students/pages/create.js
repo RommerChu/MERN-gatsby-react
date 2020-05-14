@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form'
 import axios from 'axios'
 import TeachersList from '../../teacher/components/teachers_list'
 import { Container, Row } from "react-bootstrap"
+import { Link } from "gatsby"
 
 
 const Create=()=>{
@@ -155,6 +156,8 @@ const Create=()=>{
         </div>
         <col-12>
           <button type="submit" className="btn btn-primary px-sm-5 mr-2">Add</button>
+          <Link to={'/students'} className="btn btn-secondary px-sm-5 mr-2">List</Link>
+          {/*<button type="b" className="btn btn-primary px-sm-5 mr-2">Add</button>*/}
         </col-12>
       </Row>
       </form>

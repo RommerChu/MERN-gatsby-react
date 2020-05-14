@@ -26,6 +26,16 @@ const TeacherCard = () =>{
         )
     }
 
+  const deleteTeacher=async (teacher_id)=>{
+    try{
+      const response = await axios.delete(`http://localhost:5000/api/teachers/${teacher_id}`)
+      console.log(response.data)
+
+    }catch (e) {
+      console.log("ERROR- " +e)
+    }
+  }
+
     return (
       <Row>
           {teachersState.teachers.map( teacher =>{
@@ -44,8 +54,10 @@ const TeacherCard = () =>{
                         <p className="ptag">Father: {teacher.telephone}</p>
                         <p className="ptag">Tel.: {teacher.email}</p>
                         <br/>
-                        <p><a href={`./teachers/${teacher.id}/show/`}><button className="btn btn-primary">View Teacher</button></a></p>
-                        <p><a to={`./teachers/${teacher.id}/update/`} className="btn btn-warning">Update Teacher</a></p>
+                        {/*<p><a href={`./teachers/${teacher.id}/show/`}><button className="btn btn-primary">View Teacher</button></a></p>*/}
+                        {/*<p><a to={`./teachers/${teacher.id}/update/`} className="btn btn-warning">Update Teacher</a></p>*/}
+                      <p><a onClick={() => deleteTeacher(teacher._id)} className="btn btn-warning">Delete Teacher</a></p>
+
                     </div>
                 </div>
               )
